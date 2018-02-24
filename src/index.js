@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { render } from "react-dom";
 
 import Text from "./Text";
@@ -9,7 +9,7 @@ import withHelp from "./withHelp";
 
 const TextAvecAide = withHelp(Text);
 const CheckboxAvecAide = withHelp(Checkbox);
-const AddHelp = withHelp(({children, ...props}) => children(props))
+const AddHelp = withHelp(({ children, ...props }) => children(props));
 
 const App = () => (
   <div>
@@ -19,8 +19,8 @@ const App = () => (
     <Comment content="// avec winHelp :" />
     <TextAvecAide content="besoin d'aide" help="Merci!" />
     <CheckboxAvecAide content="besoin d'aide" help="Merci!" />
-    <AddHelp content="test">
-    {({content}) => <div>test</div>}
+    <AddHelp content="help me" help="thanks">
+      {({ content }) => <Text content={content}>test</Text>}
     </AddHelp>
   </div>
 );

@@ -11,11 +11,11 @@ const withHelp = WrappedComponent => {
     };
 
     render() {
-      const { content, help, style } = this.props;
+      const { content, help, style, ...rest } = this.props;
       console.log("WrappedComponent", WrappedComponent, this.props);
       return (
         <div style={style}>
-          <WrappedComponent content={content} />
+          <WrappedComponent content={content} {...rest} />
           <OverPopup icon="help circle" content={help} />
         </div>
       );
